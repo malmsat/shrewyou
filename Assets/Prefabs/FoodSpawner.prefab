@@ -52,4 +52,4 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  spawnInterval: 1
+  spawnInterval: 10

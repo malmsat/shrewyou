@@ -22,6 +22,9 @@ public class HealthController : MonoBehaviour
     public UnityEvent OnHealthChanged;
     public UnityEvent OnDeath;
 
+    public Animator faceAnimator; // Assign in Inspector
+    private bool isHungry = false; // Track hunger state
+
     private void Start()
     {
         // Start the hunger system
@@ -34,43 +37,50 @@ public class HealthController : MonoBehaviour
         {
             yield return new WaitForSeconds(1f); // Waits 1 second
             TakeDamage(_hungerDamage); // Subtracts a fixed 15 HP
+            UpdateFacialExpression(); // Update face when hunger changes
         }
     }
 
     public void TakeDamage(float damage)
     {
-        if (_currentHealth == 0)
-        {
-            return;
-        }
+        if (_currentHealth == 0) return;
 
         _currentHealth -= damage;
         OnHealthChanged.Invoke();
 
-        if (_currentHealth < 0)
-        {
-            _currentHealth = 0;
-        }
+        if (_currentHealth < 0) _currentHealth = 0;
+        if (_currentHealth == 0) OnDeath.Invoke();
 
-        if (_currentHealth == 0)
-        {
-            OnDeath.Invoke();
-        }
+        UpdateFacialExpression(); // Update face when taking damage
     }
 
     public void AddHealth(float amountToAdd)
     {
-        if (_currentHealth == _maxHealth)
-        {
-            return;
-        }
+        if (_currentHealth == _maxHealth) return;
 
         _currentHealth += amountToAdd;
         OnHealthChanged.Invoke();
 
-        if (_currentHealth > _maxHealth)
+        if (_currentHealth > _maxHealth) _currentHealth = _maxHealth;
+
+        UpdateFacialExpression(); // Update face when gaining health
+    }
+
+        private void UpdateFacialExpression()
+    {
+        bool shouldBeHungry = _currentHealth < _maxHealth * 0.5f;
+
+        if (shouldBeHungry && !isHungry)
         {
-            _currentHealth = _maxHealth;
+            // Transition from happy to sad
+            faceAnimator.SetTrigger("HappyToSad");
+            isHungry = true;
+        }
+        else if (!shouldBeHungry && isHungry)
+        {
+            // Transition from sad to happy
+            faceAnimator.SetTrigger("SadToHappy");
+            isHungry = false;
         }
     }
 }

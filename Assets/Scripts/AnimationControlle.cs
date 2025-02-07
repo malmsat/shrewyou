@@ -6,19 +6,15 @@ public class AnimationControlle : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private StarterAssets.ThirdPersonController playerController;
     private HealthController healthController;
+    
+    public AudioSource walkAudioSource; // Assign in Inspector
 
     void Start()
     {
-        // Get the SpriteRenderer from the child object
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>(); 
-
-        // Find the ThirdPersonController script on the player
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         playerController = FindFirstObjectByType<StarterAssets.ThirdPersonController>();
-
-        // Get the HealthController on the same GameObject
         healthController = GetComponent<HealthController>();
 
-        // Subscribe to the OnDeath event
         if (healthController != null)
         {
             healthController.OnDeath.AddListener(HandleDeath);
@@ -27,16 +23,15 @@ public class AnimationControlle : MonoBehaviour
 
     void Update()
     {
-        if (anim.GetBool("isDead")) return; // Prevent updates after death
+        if (anim.GetBool("isDead")) return;
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        // Set isMoving based on movement input
-        anim.SetBool("isMoving", horizontalInput != 0 || verticalInput != 0);
+        bool isMoving = horizontalInput != 0 || verticalInput != 0;
+        anim.SetBool("isMoving", isMoving);
 
-        // Flip sprite based on movement direction
-        if (horizontalInput > 0) 
+        if (horizontalInput > 0)
         {
             spriteRenderer.flipX = true;
         }
@@ -45,17 +40,30 @@ public class AnimationControlle : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        // Check if the player is jumping
-        if (playerController != null)
+        bool isJumping = playerController != null && !playerController.Grounded;
+        anim.SetBool("isJumping", isJumping);
+
+        // 🔹 Walking Sound Logic 🔹
+        if (isMoving && !isJumping) 
         {
-            bool isJumping = !playerController.Grounded; // If not grounded, player is in the air
-            anim.SetBool("isJumping", isJumping);
+            if (!walkAudioSource.isPlaying) // Play only if not already playing
+            {
+                walkAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (walkAudioSource.isPlaying)
+            {
+                walkAudioSource.Stop();
+            }
         }
     }
 
     private void HandleDeath()
     {
         anim.SetBool("isDead", true);
-        anim.SetTrigger("Death"); // Trigger the death animation
+        anim.SetTrigger("Death");
+        walkAudioSource.Stop(); // Ensure walking sound stops on death
     }
 }
