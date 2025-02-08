@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] private string dialogueText;
-    [SerializeField] private AudioClip voiceClip;
+    [SerializeField] private string[] dialogueTexts; // Array for multiple lines
+    [SerializeField] private AudioClip[] voiceClips; // Array for multiple voice lines
+
+    private bool hasTriggered = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Ensure only the player triggers it
+        if (!hasTriggered && other.CompareTag("Player")) 
         {
-            DialogueManager.Instance.PlayDialogue(dialogueText, voiceClip);
+            DialogueManager.Instance.PlayDialogue(dialogueTexts, voiceClips);
+            hasTriggered = true; // Prevent future triggers
         }
     }
 }
