@@ -61,6 +61,10 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(clip.length + 0.5f); // Wait for audio to finish + slight pause
         }
 
+        // Clear text when all dialogues are finished
+        dialogueText.text = ""; 
+
         isPlaying = false;
     }
+
 }

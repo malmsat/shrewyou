@@ -415,7 +415,7 @@ Transform:
   m_GameObject: {fileID: 537926501}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.77, y: -0.92, z: 8.57}
+  m_LocalPosition: {x: -5.72, y: -0.31, z: -6.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -461,7 +461,7 @@ MonoBehaviour:
     itself.
   - It must eat soon, or it'll die from hunger.
   voiceClips:
-  - {fileID: 8300000, guid: 4705489b0c6e41745ab1536da01fd1da, type: 3}
+  - {fileID: 8300000, guid: c2eaef07fc4ddb94187229a25544a522, type: 3}
   - {fileID: 8300000, guid: 42418695a7ba41443aa3d6c8869744e5, type: 3}
 --- !u!1001 &749773511
 PrefabInstance:
@@ -948,6 +948,30 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 838860486}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+--- !u!1 &1638215534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6680408539697038437, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
+  m_PrefabInstance: {fileID: 7532900591735104106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1638215536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638215534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d962cbf5267bf49980cf6e7b85af57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1638215537}
+  startTime: 15
+--- !u!82 &1638215537 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2293467321651098643, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
+  m_PrefabInstance: {fileID: 7532900591735104106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1703952531 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8896822262410819881, guid: 503649562b7fabb4385f9ce707f43547, type: 3}
@@ -1301,6 +1325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueTrigger1
       objectReference: {fileID: 0}
+    - target: {fileID: 7417581389667240007, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8487486090477195456, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 600
@@ -1340,7 +1368,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4205526328557736698, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
       insertIndex: 3
       addedObject: {fileID: 537926502}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6680408539697038437, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1638215536}
   m_SourcePrefab: {fileID: 100100000, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
