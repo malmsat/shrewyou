@@ -8,7 +8,7 @@ public class CollectableFood : MonoBehaviour
     {
         _collectableBehaviour = GetComponent<ICollectableBehaviour>();
     }
-    private void OnTriggerEnter(Collider other)// other.gameobject tutoriaalityypillä var player, pitää reference player somehow
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {  

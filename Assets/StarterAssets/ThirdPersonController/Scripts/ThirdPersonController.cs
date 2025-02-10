@@ -14,6 +14,16 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+
+        private bool IsDead = false; // Track death state
+
+        public void SetDead(bool state)
+        {
+            IsDead = state;
+        }
+
+
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -213,6 +223,7 @@ namespace StarterAssets
 
         private void Move()
         {
+            if (IsDead) return; // Stop movement when dead
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -281,6 +292,7 @@ namespace StarterAssets
 
     private void JumpAndGravity()
     {
+        if (IsDead) return; // Prevent jumping when dead
         if (Grounded)
         {
             // Reset the fall timeout timer

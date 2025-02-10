@@ -4,22 +4,17 @@ public class HealthCollectableBehaviour : MonoBehaviour, ICollectableBehaviour
 {
     [SerializeField]
     private float _healthAmount;
-    
-    private GameObject player;
-
-    private void Start()
-    {
-        player = GameObject.FindWithTag("Player"); // Ensure your player GameObject has the "Player" tag
-    }
-
+    [SerializeField] private float _xpAmount = 10f;
     public void OnCollected(GameObject collector)
     {
-        if (player == null)
+        var healthController = collector.GetComponent<HealthController>();
+        if (healthController == null)
         {
-            Debug.LogError("Player not found! Ensure the player has the correct tag.");
+            Debug.LogError($"HealthController not found on {collector.name}!");
             return;
         }
 
-        player.GetComponent<HealthController>().AddHealth(_healthAmount);
+        healthController.AddHealth(_healthAmount);
+        healthController.AddXP(_xpAmount);
     }
 }
