@@ -32,21 +32,26 @@ public class HealthController : MonoBehaviour
         _currentXP += amount;
         if (_currentXP >= _maxXP)
         {
-            _currentXP = 0f; // Reset XP after level-up (adjust based on leveling system)
+            _currentXP = _maxXP; // Keep it at max
             LevelUp();
         }
         OnXPChanged.Invoke(); // Notify UI to update XP bar
     }
+    [SerializeField] private AudioClip _levelUpSound1;
+    [SerializeField] private AudioClip _levelUpSound2;
 
     private void LevelUp()
     {
-        Debug.Log("Level Up!"); 
-        // Add level-up mechanics here (e.g., increase max health)
+        // Play two dialogue lines with corresponding voice clips
+        DialogueManager.Instance.PlayDialogue(
+            new string[]
+            {
+                "Looks like the shrew has successfully eaten its fill for the night.",
+                "It can now return to the safety of its home burrow."
+            },
+            new AudioClip[] { _levelUpSound1, _levelUpSound2 }
+        );
     }
-
-
-
-
 
 
 

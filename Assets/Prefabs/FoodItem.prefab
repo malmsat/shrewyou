@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthAmount: 50
+  _xpAmount: 50
 --- !u!114 &6081664470446611012
 MonoBehaviour:
   m_ObjectHideFlags: 0
