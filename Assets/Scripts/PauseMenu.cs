@@ -1,23 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine; // Import Cinemachine
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject PauseMenuUI; // Reference to the pause menu
+    public GameObject PauseMenuUI; // Reference to the pause menu UI
     public static bool isPaused = false; // Flag to check if the game is paused
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private AudioSource[] allAudioSources; // Array to hold all active AudioSources
+    private CinemachineBrain cinemachineBrain; // Reference to Cinemachine Brain
+
     void Start()
     {
         PauseMenuUI.SetActive(false);
+        allAudioSources = FindObjectsOfType<AudioSource>(); // Get all audio sources in the scene
+        cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>(); // Get Cinemachine Brain from Main Camera
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused && PauseMenuUI != null)
+            if (isPaused)
             {
                 ResumeGame();
             }
@@ -27,37 +31,53 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        if (isPaused && PauseMenuUI != null)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isPaused;
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0f; // Stop time
-        PauseMenuUI.SetActive(true); // Show the pause menu
-        isPaused = true; // Set the flag to true
+        PauseMenuUI.SetActive(true);
+        isPaused = true;
+
+        // Pause all audio sources
+        foreach (AudioSource audio in allAudioSources)
+        {
+            audio.Pause();
+        }
+
+        // Disable Cinemachine Brain to stop camera movement
+        if (cinemachineBrain != null)
+        {
+            cinemachineBrain.enabled = false;
+        }
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1f; // Resume time
-        PauseMenuUI.SetActive(false); // Hide the pause menu
-        isPaused = false; // Set the flag to false
+        PauseMenuUI.SetActive(false);
+        isPaused = false;
+
+        // Resume all audio sources
+        foreach (AudioSource audio in allAudioSources)
+        {
+            audio.UnPause();
+        }
+
+        // Re-enable Cinemachine Brain to restore camera movement
+        if (cinemachineBrain != null)
+        {
+            cinemachineBrain.enabled = true;
+        }
     }
 
     public void LoadMenu()
     {
-        Time.timeScale = 1f; // Resume time
-        isPaused = false; // Set the flag to false
-        SceneManager.LoadScene("MainMenu"); // Load the menu scene
+        Time.timeScale = 1f;
+        isPaused = false;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()

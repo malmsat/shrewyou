@@ -44,15 +44,18 @@ public class SpawnPrefab : MonoBehaviour
             // Instantiate the selected prefab at the hit point
             GameObject spawnedObject = Instantiate(prefabsToSpawn[randomIndex], hit.point, Quaternion.identity);
 
-            // Optionally, adjust the position of the prefab so that it sits correctly on the ground
+            // Adjust the position to sit correctly on the ground
             Collider collider = spawnedObject.GetComponent<Collider>();
             if (collider != null)
             {
-                // Adjust the Y position to ensure the object sits correctly on the ground
                 float objectHeight = collider.bounds.extents.y;
                 spawnedObject.transform.position = new Vector3(spawnedObject.transform.position.x,
                     spawnedObject.transform.position.y + objectHeight, spawnedObject.transform.position.z);
             }
+
+            // Destroy the object after 60 seconds
+            Destroy(spawnedObject, 60f);
         }
     }
+
 }
