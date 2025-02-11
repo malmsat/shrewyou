@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 130906212}
   - component: {fileID: 130906211}
   m_Layer: 0
-  m_Name: DialogueTrigger2
+  m_Name: DialogueTrigger1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 130906209}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.77, y: -0.92, z: 8.57}
+  m_LocalPosition: {x: -1.77, y: -0.92, z: -12.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -228,7 +228,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.5823402
+  m_Radius: 14.86
   m_Height: 11.1646805
   m_Direction: 1
   m_Center: {x: 0.38234043, y: 0, z: -0.6793957}
@@ -245,12 +245,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTexts:
-  - This small but greedy animal eats its own weight in bugs every night to sustain
-    itself.
-  - It must eat soon, or it'll die from hunger.
+  - Night falls over the temperate forest, but the days work only begins for some
+    of its inhabitants.
+  - The shrew, is a nocturnal mole-like mammal known for its long curvy snout and
+    an unusually plentiful appetite.
   voiceClips:
-  - {fileID: 8300000, guid: 4705489b0c6e41745ab1536da01fd1da, type: 3}
-  - {fileID: 8300000, guid: 42418695a7ba41443aa3d6c8869744e5, type: 3}
+  - {fileID: 8300000, guid: 2b42183218785cf41bab99604ebbed24, type: 3}
+  - {fileID: 8300000, guid: 8e9493662ce46fc449dec386733b8bde, type: 3}
 --- !u!1001 &200602378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1235,6 +1236,10 @@ PrefabInstance:
     - target: {fileID: 4679862602711568048, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184888265175934731, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5786523276898049107, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
       propertyPath: m_LocalPosition.x
