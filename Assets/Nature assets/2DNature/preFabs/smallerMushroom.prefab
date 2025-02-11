@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5590704782387900867}
   - component: {fileID: 5984517712116183403}
+  - component: {fileID: 6813690040769593242}
   m_Layer: 0
   m_Name: smallerMushroom
   m_TagString: Untagged
@@ -86,7 +87,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!114 &6813690040769593242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086878663714714535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a94e977064fdbc45a1fd1d2e8783d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 0}
 --- !u!1 &7670012540907003043
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +110,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 541088913202779958}
-  - component: {fileID: -3951049514545582392}
   m_Layer: 0
   m_Name: smallerMushroom
   m_TagString: Untagged
@@ -120,16 +133,3 @@ Transform:
   - {fileID: 5590704782387900867}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3951049514545582392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7670012540907003043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a94e977064fdbc45a1fd1d2e8783d65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mainCamera: {fileID: 0}
