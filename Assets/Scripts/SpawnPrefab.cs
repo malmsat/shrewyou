@@ -27,9 +27,9 @@ public class SpawnPrefab : MonoBehaviour
 
     void SpawnObject()
     {
-        // Generate a random position around the spawner's current position
-        Vector3 randomPosition = transform.position + new Vector3(
-            Random.Range(-spawnRadius, spawnRadius), 
+        // Generate random position within the spawn radius
+        Vector3 randomPosition = new Vector3(
+            Random.Range(-spawnRadius, spawnRadius),
             50f,  // Start with a high Y value to check for ground detection
             Random.Range(-spawnRadius, spawnRadius)
         );
@@ -57,6 +57,5 @@ public class SpawnPrefab : MonoBehaviour
             Destroy(spawnedObject, 60f);
         }
     }
-
 
 }

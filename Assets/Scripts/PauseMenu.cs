@@ -37,19 +37,17 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f; // Stop time
         PauseMenuUI.SetActive(true);
         isPaused = true;
 
-        // Pause all valid audio sources
-        foreach (AudioSource audio in FindObjectsOfType<AudioSource>())
+        // Pause all audio sources
+        foreach (AudioSource audio in allAudioSources)
         {
-            if (audio != null && audio.isPlaying) // Check if the AudioSource is valid
-            {
-                audio.Pause();
-            }
+            audio.Pause();
         }
 
+        // Disable Cinemachine Brain to stop camera movement
         if (cinemachineBrain != null)
         {
             cinemachineBrain.enabled = false;
@@ -58,25 +56,22 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // Resume time
         PauseMenuUI.SetActive(false);
         isPaused = false;
 
-        // Resume all valid audio sources
-        foreach (AudioSource audio in FindObjectsOfType<AudioSource>())
+        // Resume all audio sources
+        foreach (AudioSource audio in allAudioSources)
         {
-            if (audio != null) // Check if the AudioSource is valid
-            {
-                audio.UnPause();
-            }
+            audio.UnPause();
         }
 
+        // Re-enable Cinemachine Brain to restore camera movement
         if (cinemachineBrain != null)
         {
             cinemachineBrain.enabled = true;
         }
     }
-
 
     public void LoadMenu()
     {
