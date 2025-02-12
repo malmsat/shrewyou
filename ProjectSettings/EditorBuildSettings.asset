@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroCutscene.unity
     guid: dc1f11be4f433ef49ae500aaacd01c13
   - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 383fff2fbbe059245a1f18aeccb47075
+  - enabled: 0
     path: Assets/Scenes/SatuTestScene.unity
     guid: 3e6120dbb385486488549db6ab566160
   m_configObjects:
