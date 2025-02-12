@@ -2404,34 +2404,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 882306379}
     m_Modifications:
-    - target: {fileID: 246496118452753984, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237249781193894289, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6711156
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237249781193894289, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
-      propertyPath: m_Size.y
-      value: 0.4933932
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237249781193894289, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
-      propertyPath: m_Size.z
-      value: 0.07284654
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237249781193894289, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
-      propertyPath: m_Center.x
-      value: 0.046514083
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237249781193894289, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
-      propertyPath: m_Center.y
-      value: -0.25330266
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237249781193894289, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
-      propertyPath: m_Center.z
-      value: 0.642202
-      objectReference: {fileID: 0}
     - target: {fileID: 1470463568441026357, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
       propertyPath: m_Name
       value: Cat
@@ -2484,14 +2456,6 @@ PrefabInstance:
       propertyPath: alertSound
       value: 
       objectReference: {fileID: 1175817279}
-    - target: {fileID: 6956928175039305595, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
-      propertyPath: stunnedVoiceClips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6956928175039305595, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
-      propertyPath: 'stunnedVoiceClips.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: bab4183e107932549a11160e9da871ea, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2595,14 +2559,6 @@ PrefabInstance:
       propertyPath: alertSound
       value: 
       objectReference: {fileID: 1175817279}
-    - target: {fileID: 5902248096958057334, guid: a62eac020e945d74a84c4160031da7d2, type: 3}
-      propertyPath: stunnedVoiceClips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5902248096958057334, guid: a62eac020e945d74a84c4160031da7d2, type: 3}
-      propertyPath: 'stunnedVoiceClips.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: bab4183e107932549a11160e9da871ea, type: 3}
     - target: {fileID: 6651746023533567425, guid: a62eac020e945d74a84c4160031da7d2, type: 3}
       propertyPath: m_Name
       value: Hedgehog (1)
