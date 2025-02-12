@@ -10,6 +10,11 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private float stunDuration = 3f; // How long the enemy stops moving
     [SerializeField] private AudioSource alertSound; // Sound when player is detected
+    [SerializeField] private bool hasBeenStunned = false; // Track if stunned before
+
+    // **Serialized fields for stun dialogue**
+    [SerializeField] private string[] stunnedDialogue = { "Danger has been successfully averted. For now." };
+    [SerializeField] private AudioClip[] stunnedVoiceClips; // Assign in the Inspector
 
     private void Start()
     {
@@ -70,23 +75,38 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private ParticleSystem stinkEffect; // Reference to the stink effect on the player
 
     // Method to handle stink attack
-    public void StinkAttack()
+public void StinkAttack()
+{
+    if (isFollowing)
     {
-        if (isFollowing)
+        isStunned = true;
+        agent.isStopped = true;
+
+        if (stinkEffect != null)
         {
-            isStunned = true;
-            agent.isStopped = true;
-
-            if (stinkEffect != null)
-            {
-                stinkEffect.Stop(); // Stop in case it's still playing
-                stinkEffect.Play(); // Manually play the effect
-            }
-
-            // Disable following the player after stink attack
-            isFollowing = false;
-
-            Invoke(nameof(RecoverFromStun), stunDuration);
+            stinkEffect.Stop();
+            stinkEffect.Play();
         }
+
+        isFollowing = false;
+
+        // **Only play stunned dialogue the first time**
+        if (!hasBeenStunned)
+        {
+            hasBeenStunned = true; // Mark as stunned so it doesn’t repeat
+
+            if (stunnedVoiceClips.Length == stunnedDialogue.Length && stunnedVoiceClips.Length > 0)
+            {
+                DialogueManager.Instance.PlayDialogue(stunnedDialogue, stunnedVoiceClips);
+            }
+            else
+            {
+                Debug.LogError("Stunned dialogue and voice clips must have the same length!");
+            }
+        }
+
+        Invoke(nameof(RecoverFromStun), stunDuration);
     }
+}
+
 }

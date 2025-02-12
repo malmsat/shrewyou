@@ -185,7 +185,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4205526328557736698, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1930782563}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
 --- !u!4 &30396804 stripped
@@ -1355,6 +1358,14 @@ PrefabInstance:
       propertyPath: alertSound
       value: 
       objectReference: {fileID: 1175817279}
+    - target: {fileID: 6956928175039305595, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
+      propertyPath: stunnedVoiceClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956928175039305595, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
+      propertyPath: 'stunnedVoiceClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bab4183e107932549a11160e9da871ea, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1575,6 +1586,14 @@ PrefabInstance:
       propertyPath: alertSound
       value: 
       objectReference: {fileID: 1175817279}
+    - target: {fileID: 6956928175039305595, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
+      propertyPath: stunnedVoiceClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956928175039305595, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
+      propertyPath: 'stunnedVoiceClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bab4183e107932549a11160e9da871ea, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1999,6 +2018,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72a3cf729bb6b49428107ddbd3b4ada0, type: 3}
+--- !u!4 &1266770039 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4205526328557736698, guid: ae3eef2a3a4deca4aa06ecca0666c97e, type: 3}
+  m_PrefabInstance: {fileID: 3270445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1315120034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8338988566280778637, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -2460,6 +2484,14 @@ PrefabInstance:
       propertyPath: alertSound
       value: 
       objectReference: {fileID: 1175817279}
+    - target: {fileID: 6956928175039305595, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
+      propertyPath: stunnedVoiceClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956928175039305595, guid: a3b3457c94a6d7148a8de933ecffcf67, type: 3}
+      propertyPath: 'stunnedVoiceClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bab4183e107932549a11160e9da871ea, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2470,6 +2502,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2089019253911622472, guid: 72a3cf729bb6b49428107ddbd3b4ada0, type: 3}
   m_PrefabInstance: {fileID: 1731247147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1930782562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1930782563}
+  - component: {fileID: 1930782565}
+  - component: {fileID: 1930782564}
+  m_Layer: 0
+  m_Name: DialogueTrigger2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1930782563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930782562}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.17, y: 15.84, z: -70.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1266770039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1930782564
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930782562}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 11.26
+  m_Height: 2.31
+  m_Direction: 1
+  m_Center: {x: 0.38234043, y: -11.15, z: -0.6793957}
+--- !u!114 &1930782565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930782562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6249b6280cfb27c40a0fa27c51d087c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTexts:
+  - The life of a shrew, is a life of danger.
+  - Luckily, this little bugger has a way of stinking so terribly, enemies will stop
+    hunting it.
+  - It can press E to stink.
+  voiceClips:
+  - {fileID: 8300000, guid: b204ded980f8d08429e84d119222e5b3, type: 3}
+  - {fileID: 8300000, guid: 3c1fa39ce341ed54bba05fd712595196, type: 3}
+  - {fileID: 8300000, guid: dd1e60c4dac2ec44eb71a950b8502573, type: 3}
 --- !u!1001 &1952754732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2486,6 +2595,14 @@ PrefabInstance:
       propertyPath: alertSound
       value: 
       objectReference: {fileID: 1175817279}
+    - target: {fileID: 5902248096958057334, guid: a62eac020e945d74a84c4160031da7d2, type: 3}
+      propertyPath: stunnedVoiceClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902248096958057334, guid: a62eac020e945d74a84c4160031da7d2, type: 3}
+      propertyPath: 'stunnedVoiceClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bab4183e107932549a11160e9da871ea, type: 3}
     - target: {fileID: 6651746023533567425, guid: a62eac020e945d74a84c4160031da7d2, type: 3}
       propertyPath: m_Name
       value: Hedgehog (1)
@@ -2560,6 +2677,14 @@ PrefabInstance:
       propertyPath: alertSound
       value: 
       objectReference: {fileID: 1175817279}
+    - target: {fileID: 5902248096958057334, guid: a62eac020e945d74a84c4160031da7d2, type: 3}
+      propertyPath: stunnedVoiceClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902248096958057334, guid: a62eac020e945d74a84c4160031da7d2, type: 3}
+      propertyPath: 'stunnedVoiceClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bab4183e107932549a11160e9da871ea, type: 3}
     - target: {fileID: 6651746023533567425, guid: a62eac020e945d74a84c4160031da7d2, type: 3}
       propertyPath: m_Name
       value: Hedgehog
