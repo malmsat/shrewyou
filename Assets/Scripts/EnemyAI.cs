@@ -46,6 +46,7 @@ public class EnemyAI : MonoBehaviour
             isFollowing = true;
             alertSound.Play(); // Play sound when player is detected
         }
+
     }
 
     private void OnTriggerExit(Collider other)
