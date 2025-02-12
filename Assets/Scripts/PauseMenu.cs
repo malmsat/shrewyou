@@ -78,12 +78,15 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void LoadMenu()
-    {
-        Time.timeScale = 1f;
-        isPaused = false;
-        SceneManager.LoadScene("MainMenu");
-    }
+public void LoadMenu()
+{
+    Time.timeScale = 1f; // Ensure time is unpaused
+    isPaused = false;
+    Cursor.lockState = CursorLockMode.None; // Ensure cursor is unlocked
+    Cursor.visible = true;
+    SceneManager.LoadScene("MainMenu");
+}
+
 
     public void QuitGame()
     {
