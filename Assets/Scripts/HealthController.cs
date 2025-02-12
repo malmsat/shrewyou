@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
+    [SerializeField] 
+    private GameObject deathMenu; // Assign in Inspector
+    private StarterAssetsInputs playerInputs; // For disabling camera movement
     [SerializeField]
     private float _currentHealth;
     [SerializeField]
@@ -74,6 +77,7 @@ public class HealthController : MonoBehaviour
     private void Start()
     {
         playerController = GetComponent<ThirdPersonController>();
+        playerInputs = GetComponent<StarterAssetsInputs>(); // Reference input handler
         StartCoroutine(HungerDamageRoutine());
         OnXPChanged.AddListener(() => _xpBar.UpdateXPBar(this));
     }
@@ -88,37 +92,55 @@ public class HealthController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+public void TakeDamage(float damage)
+{
+    if (_currentHealth == 0) return;
+
+    _currentHealth -= damage;
+    OnHealthChanged.Invoke();
+
+    if (_currentHealth < 0) _currentHealth = 0;
+
+    if (_currentHealth == 0)
     {
-        if (_currentHealth == 0) return;
-
-        _currentHealth -= damage;
-        OnHealthChanged.Invoke();
-
-        if (_currentHealth < 0) _currentHealth = 0;
-
-        if (_currentHealth == 0)
+        OnDeath.Invoke();
+        if (playerController != null)
         {
-            OnDeath.Invoke();
-            if (playerController != null)
-            {
-                playerController.enabled = false; // Disables movement
-            }
-
-            // Start coroutine to load the Main Menu after 5 seconds
-            StartCoroutine(LoadMainMenuAfterDelay(5f));
+            playerController.enabled = false; // Disable movement
+        }
+        if (playerInputs != null)
+        {
+            playerInputs.cursorInputForLook = false; // Stop camera movement
         }
 
-        UpdateFacialExpression();
+        StartCoroutine(ShowDeathMenuAfterDelay(3f)); // Wait 3 seconds before showing the menu
     }
 
-    private IEnumerator LoadMainMenuAfterDelay(float delay)
+    UpdateFacialExpression();
+}
+
+private IEnumerator ShowDeathMenuAfterDelay(float delay)
+{
+    yield return new WaitForSeconds(delay);
+    
+    if (deathMenu != null)
     {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("MainMenu"); // Ensure your scene name is correct
+        deathMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None; // Unlock cursor for UI
+        Cursor.visible = true;
     }
+}
 
 
+    private void ShowDeathMenu()
+    {
+        if (deathMenu != null)
+        {
+            deathMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None; // Unlock cursor for UI
+            Cursor.visible = true;
+        }
+    }
 
     public void AddHealth(float amountToAdd)
     {
