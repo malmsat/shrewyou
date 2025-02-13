@@ -34,34 +34,36 @@ public class NPCDialogueTrigger : MonoBehaviour
         }
     }
 
-    void ShowDialogue()
-    {
-        dialogueUI.SetActive(true);
-        dialogueText.text = "Squeak-squeak-SQUEAK! Ch-ch-ch-ch CHRRRP!!";
+private bool isDialogueActive = false;
 
-        // Unlock cursor for UI interaction
+void ShowDialogue()
+{
+    dialogueUI.SetActive(true);
+    isDialogueActive = true;
+
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
+}
+
+void HideDialogue()
+{
+    dialogueUI.SetActive(false);
+    isDialogueActive = false;
+
+    Cursor.lockState = CursorLockMode.Locked;
+    Cursor.visible = false;
+}
+
+void Update()
+{
+    if (isDialogueActive)
+    {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        // Set button text and actions
-        option1Button.GetComponentInChildren<TextMeshProUGUI>().text = "";
-        option2Button.GetComponentInChildren<TextMeshProUGUI>().text = "";
-
-        option1Button.onClick.RemoveAllListeners();
-        option2Button.onClick.RemoveAllListeners();
-
-        option1Button.onClick.AddListener(() => ChooseOption(1));
-        option2Button.onClick.AddListener(() => ChooseOption(2));
     }
+}
 
-    void HideDialogue()
-    {
-        dialogueUI.SetActive(false);
 
-        // Lock cursor back when dialogue closes
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
 
     void ChooseOption(int option)
     {
