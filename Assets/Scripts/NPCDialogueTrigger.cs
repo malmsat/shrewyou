@@ -40,30 +40,13 @@ void ShowDialogue()
 {
     dialogueUI.SetActive(true);
     isDialogueActive = true;
-
-    Cursor.lockState = CursorLockMode.None;
-    Cursor.visible = true;
 }
 
 void HideDialogue()
 {
     dialogueUI.SetActive(false);
     isDialogueActive = false;
-
-    Cursor.lockState = CursorLockMode.Locked;
-    Cursor.visible = false;
 }
-
-void Update()
-{
-    if (isDialogueActive)
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
-}
-
-
 
     void ChooseOption(int option)
     {

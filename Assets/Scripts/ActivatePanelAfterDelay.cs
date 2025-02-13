@@ -1,20 +1,32 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using System.Collections;
+
 
 public class ActivatePanelAfterDelay : MonoBehaviour
 {
-    public GameObject panel; // Assign your panel in the inspector
-    public float delay = 6f; // Time in seconds before activating the panel
+    public GameObject panel;
+    public float delay = 6f;
 
     void Start()
     {
-        if (panel != null)
-        {
-            Invoke(nameof(ActivatePanel), delay);
-        }
+        StartCoroutine(ActivatePanelCoroutine());
     }
 
-    void ActivatePanel()
+    IEnumerator ActivatePanelCoroutine()
     {
+        yield return new WaitForSeconds(delay);
         panel.SetActive(true);
+
+        // Ensure it's interactable
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
+        if (canvasGroup != null)
+        {
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+        }
+
+        // Refresh event system
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }
