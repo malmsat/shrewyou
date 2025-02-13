@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent agent;
     private bool isFollowing = false;
     private bool isStunned = false; // Check if the enemy is stunned
+    [SerializeField] private BackgroundMusic backgroundMusicManager; // Reference to BackgroundMusic
 
     [SerializeField] private float stunDuration = 3f; // How long the enemy stops moving
     [SerializeField] private AudioSource alertSound; // Sound when player is detected
@@ -49,19 +50,29 @@ public class EnemyAI : MonoBehaviour
         if (other.CompareTag("Player") && !isStunned)
         {
             isFollowing = true;
-            alertSound.Play(); // Play sound when player is detected
-        }
+            alertSound.Play();
 
+            // Switch to battle music
+            if (backgroundMusicManager != null)
+            {
+                backgroundMusicManager.EnterBattle();
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Only stop following if not stunned
             if (!isStunned)
             {
                 isFollowing = false;
+
+                // Switch back to background music
+                if (backgroundMusicManager != null)
+                {
+                    backgroundMusicManager.ExitBattle();
+                }
             }
         }
     }

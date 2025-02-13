@@ -8,8 +8,11 @@ public class NPCDialogueTrigger : MonoBehaviour
     public TextMeshProUGUI dialogueText; // Assign in Inspector
     public Button option1Button; // Assign in Inspector
     public Button option2Button; // Assign in Inspector
+    public AudioSource audioSource; // Assign in Inspector
+    public AudioClip enterSound; // Assign a sound effect in the Inspector
 
     private bool isPlayerInRange = false;
+    private bool isDialogueActive = false;
 
     void Start()
     {
@@ -22,6 +25,12 @@ public class NPCDialogueTrigger : MonoBehaviour
         {
             isPlayerInRange = true;
             ShowDialogue();
+
+            // Play sound when player enters
+            if (audioSource != null && enterSound != null)
+            {
+                audioSource.PlayOneShot(enterSound);
+            }
         }
     }
 
@@ -34,19 +43,17 @@ public class NPCDialogueTrigger : MonoBehaviour
         }
     }
 
-private bool isDialogueActive = false;
+    void ShowDialogue()
+    {
+        dialogueUI.SetActive(true);
+        isDialogueActive = true;
+    }
 
-void ShowDialogue()
-{
-    dialogueUI.SetActive(true);
-    isDialogueActive = true;
-}
-
-void HideDialogue()
-{
-    dialogueUI.SetActive(false);
-    isDialogueActive = false;
-}
+    void HideDialogue()
+    {
+        dialogueUI.SetActive(false);
+        isDialogueActive = false;
+    }
 
     void ChooseOption(int option)
     {

@@ -31,8 +31,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = isPaused;
+
     }
 
     public void PauseGame()
