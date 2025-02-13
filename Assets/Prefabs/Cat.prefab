@@ -51,6 +51,11 @@ MonoBehaviour:
   player: {fileID: 0}
   stunDuration: 3
   alertSound: {fileID: 0}
+  hasBeenStunned: 0
+  stunnedDialogue:
+  - Danger has been successfully averted. For now.
+  stunnedVoiceClips:
+  - {fileID: 8300000, guid: bab4183e107932549a11160e9da871ea, type: 3}
   stinkEffect: {fileID: 0}
 --- !u!135 &971703684166877611
 SphereCollider:
@@ -159,8 +164,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.4933939, z: 0.113708496}
-  m_Center: {x: 0, y: -0.25330305, z: 0.004234314}
+  m_Size: {x: 0.6711156, y: 0.4933932, z: 0.07284654}
+  m_Center: {x: 0.046514083, y: -0.25330266, z: 0.642202}
 --- !u!1 &5558542095243247939
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 5558542095243247939}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.13, z: -4.05}
+  m_LocalPosition: {x: 0.01, y: -0.13, z: 0.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

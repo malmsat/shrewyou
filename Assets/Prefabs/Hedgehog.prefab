@@ -242,6 +242,11 @@ MonoBehaviour:
   player: {fileID: 0}
   stunDuration: 3
   alertSound: {fileID: 0}
+  hasBeenStunned: 0
+  stunnedDialogue:
+  - Danger has been successfully averted. For now.
+  stunnedVoiceClips:
+  - {fileID: 8300000, guid: bab4183e107932549a11160e9da871ea, type: 3}
   stinkEffect: {fileID: 0}
 --- !u!135 &5337868557519021429
 SphereCollider:
