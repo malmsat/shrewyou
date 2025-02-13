@@ -50,7 +50,7 @@ public class HealthController : MonoBehaviour
             new string[]
             {
                 "Looks like the shrew has successfully eaten its fill for the night.",
-                "It can now return to the safety of its home burrow."
+                "It can now find its way to the safety of its home burrow."
             },
             new AudioClip[] { _levelUpSound1, _levelUpSound2 }
         );
