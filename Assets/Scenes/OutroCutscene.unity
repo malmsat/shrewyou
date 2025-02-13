@@ -1191,10 +1191,10 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: -8537236832335653696, guid: 59dbb18e976c4454ebd3e229372a5d8a, type: 2}
-    value: {fileID: 9078993845060804979}
   - key: {fileID: 2928688252892610662, guid: 59dbb18e976c4454ebd3e229372a5d8a, type: 2}
     value: {fileID: 313010712}
+  - key: {fileID: 5327847845534511452, guid: 59dbb18e976c4454ebd3e229372a5d8a, type: 2}
+    value: {fileID: 9078993845060804979}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &528168560
@@ -4377,7 +4377,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 353, y: 17, z: 353}
 --- !u!81 &8944336655702990188
 AudioListener:
   m_ObjectHideFlags: 0
