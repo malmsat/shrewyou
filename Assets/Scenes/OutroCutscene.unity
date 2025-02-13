@@ -1925,6 +1925,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d293a7552e556d24db8e1a420e93a85c, type: 2}
     - target: {fileID: 135756642000475821, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135756642000475821, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: cursorLocked
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1871652124774969641, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -2320,6 +2324,7 @@ GameObject:
   - component: {fileID: 1494033821}
   - component: {fileID: 1494033820}
   - component: {fileID: 1494033822}
+  - component: {fileID: 1494033823}
   m_Layer: 5
   m_Name: WinPanel
   m_TagString: Untagged
@@ -2400,6 +2405,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa5f611ccfd217408df87861a050c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1494033823
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494033818}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1498796994
 PrefabInstance:
   m_ObjectHideFlags: 0
