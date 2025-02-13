@@ -34,46 +34,44 @@ public class NPCDialogueTrigger : MonoBehaviour
         }
     }
 
-private bool isDialogueActive = false;
-
-void ShowDialogue()
-{
-    dialogueUI.SetActive(true);
-    isDialogueActive = true;
-
-    Cursor.lockState = CursorLockMode.None;
-    Cursor.visible = true;
-}
-
-void HideDialogue()
-{
-    dialogueUI.SetActive(false);
-    isDialogueActive = false;
-
-    Cursor.lockState = CursorLockMode.Locked;
-    Cursor.visible = false;
-}
-
-void Update()
-{
-    if (isDialogueActive)
+    void ShowDialogue()
     {
+        dialogueUI.SetActive(true);
+        dialogueText.text = "Squeak-squeak-SQUEAK! Ch-ch-ch-ch CHRRRP!!";
+
+        // Unlock cursor for UI interaction
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        // Set button text and actions
+        option1Button.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        option2Button.GetComponentInChildren<TextMeshProUGUI>().text = "";
+
+        option1Button.onClick.RemoveAllListeners();
+        option2Button.onClick.RemoveAllListeners();
+
+        option1Button.onClick.AddListener(() => ChooseOption(1));
+        option2Button.onClick.AddListener(() => ChooseOption(2));
     }
-}
 
+    void HideDialogue()
+    {
+        dialogueUI.SetActive(false);
 
+        // Lock cursor back when dialogue closes
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     void ChooseOption(int option)
     {
         if (option == 1)
         {
-            dialogueText.text = "Knowledge is a powerful thing.";
+            dialogueText.text = "TSSSSK! TSSSK! CHRP!";
         }
         else if (option == 2)
         {
-            dialogueText.text = "Wealth can be deceiving.";
+            dialogueText.text = "EEEEEEEEEE!!";
         }
 
         option1Button.gameObject.SetActive(false);
