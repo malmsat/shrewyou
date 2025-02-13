@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.35686275, g: 0.27450982, b: 0.56078434, a: 1}
+  m_FogColor: {r: 0.35686275, g: 0.27450982, b: 0.42745098, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.016
   m_LinearFogStart: 0
@@ -1317,10 +1317,6 @@ PrefabInstance:
     - target: {fileID: 2848856532451739091, guid: fdce2aa61b7674748a4c69d5c95bd4ae, type: 3}
       propertyPath: m_Name
       value: VFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848856532451739091, guid: fdce2aa61b7674748a4c69d5c95bd4ae, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
