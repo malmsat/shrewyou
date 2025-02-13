@@ -1269,7 +1269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &626894518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2326,7 +2326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1494033819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2937,7 +2937,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 4b7b07836983f954388eaf7becd3fef5, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1001 &2011379931
 PrefabInstance:
@@ -3470,6 +3470,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 588774116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2119081667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119081669}
+  - component: {fileID: 2119081668}
+  m_Layer: 0
+  m_Name: PanelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2119081668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119081667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd6893fe7a6a04fa0ab3df2dad2418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 1494033818}
+  delay: 12
+--- !u!4 &2119081669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119081667}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0485153, y: -7.4913654, z: 32.929214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543073949190837070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3824,8 +3870,8 @@ MonoBehaviour:
   - With the babes safely tucked in its care, the shrew can finally rest.
   - A well earned sleep indeed, for the little creature.
   voiceClips:
-  - {fileID: 8300000, guid: c2eaef07fc4ddb94187229a25544a522, type: 3}
-  - {fileID: 8300000, guid: 42418695a7ba41443aa3d6c8869744e5, type: 3}
+  - {fileID: 8300000, guid: e02cc9dd473864d48a1f6fd90119779b, type: 3}
+  - {fileID: 8300000, guid: 4fbc57cee443530409352c14971d2edc, type: 3}
 --- !u!82 &2293467321974042080
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14342,3 +14388,4 @@ SceneRoots:
   - {fileID: 313010710}
   - {fileID: 588774116}
   - {fileID: 1039521559}
+  - {fileID: 2119081669}
