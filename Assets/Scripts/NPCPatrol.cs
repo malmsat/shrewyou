@@ -6,7 +6,7 @@ public class NPCPatrol : MonoBehaviour
     public Transform[] patrolPoints; // Assign in Inspector
     private int currentPointIndex = 0;
     private NavMeshAgent agent;
-
+    SpriteRenderer spriteRenderer;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -24,8 +24,8 @@ public class NPCPatrol : MonoBehaviour
             NextPatrolPoint();
         }
             float move = Input.GetAxisRaw("Horizontal");
-    if (move != 0)
-        spriteRenderer.flipX = (move < 0);
+        if (move != 0)
+            spriteRenderer.flipX = (move < 0);
     }
 
     void NextPatrolPoint()
@@ -36,6 +36,6 @@ public class NPCPatrol : MonoBehaviour
         agent.SetDestination(patrolPoints[currentPointIndex].position);
     }
 
-    SpriteRenderer spriteRenderer;
+
 }
 

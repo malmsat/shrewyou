@@ -66,4 +66,10 @@ public class AnimationControlle : MonoBehaviour
         anim.SetTrigger("Death");
         walkAudioSource.Stop(); // Ensure walking sound stops on death
     }
+
+    public void TriggerEatAnimation()
+    {
+        anim.SetTrigger("Eat");
+    }
+
 }
